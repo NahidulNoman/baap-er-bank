@@ -13,17 +13,22 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     let getWithdrawString = getWithdraw.innerText;
     let getFinalWithdraw = parseFloat(getWithdrawString);
 
-    let totalWithdraw = finalWithdraw + getFinalWithdraw;
-    getWithdraw.innerText = totalWithdraw;
+    
 
-    // if(withdraw > totalBalanceWithdraw){
-    //     alert('Baap er Bank e eto taka nai!!');
-    //     return;
-    // }
-
+  
     let totalBalanceWithdraw = document.getElementById('balance');
     let getBalanceWithdrawString = totalBalanceWithdraw.innerText;
     let getBalanceWithdrawFloat = parseFloat(getBalanceWithdrawString);
+    console.log(finalWithdraw,totalBalanceWithdraw)
+
+    if(finalWithdraw > getBalanceWithdrawFloat){
+        alert('Baap er Bank e eto taka nai!!');
+        return;
+    }
+    else{
+        let totalWithdraw = finalWithdraw + getFinalWithdraw;
+        getWithdraw.innerText = totalWithdraw;
+    }
 
     let total = getBalanceWithdrawFloat - finalWithdraw;
     totalBalanceWithdraw.innerText = total;
